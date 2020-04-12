@@ -54,7 +54,7 @@ def log_out():
 def confirm_user(username, token):
     user = User.query.filter_by(username=username).first()
     if user.confirmed:
-        flash("Your account have been already confirmed! Please login")
+        flash("Your account have been already confirmed! Please login", category="success")
         return redirect(url_for('auth.login'))
     if user is None or not confirm(user, token):
         flash("Invalid Confirm. Please try again or click resend", category="danger")
