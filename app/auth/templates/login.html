@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('auth.static', filename = 'css/login.css')}}">
+{% endblock %}
+{% block title %}Index{% endblock %}
+{% block page_content %}
+<div class="form-container">
+    <h2>Login</h2>
+   {% for category, message in get_flashed_messages(with_categories=True) %}
+    <p class="alert alert-{{category}} ">
+        {{message}}
+    </p>
+    {% endfor %}
+    <form method="POST">
+        {{form.hidden_tag()}}
+        <div class="form-username">
+            {{form.username.label}}
+        </div>
+        {{form.username(class="form-control")}}
+        <div class="form-password">
+            {{form.password.label}}
+        </div>
+        {{form.password(class="form-control")}}
+        <div class="form-remember">
+            {{form.remember_me()}} {{form.remember_me.label}}
+        </div>
+        <div class="form-submit">
+            {{form.submit(class="btn btn-success")}}
+        </div>
+    </form>
+    <div class = "sign-up-div">
+        <p>Don't have account yet? <a href="{{url_for('auth.sign_up')}}">Sign up</a></p>
+    </div>
+    <div class = "sign-up-div">
+        <p>Missing email confirm account? <a href="{{url_for('auth.resend_confirm')}}">Re-send</a></p>
+    </div>
+
+    <div class = "sign-up-div">
+        <p><a href="{{url_for('auth.resend_confirm')}}">Forgot password?</a></p>
+    </div>
+</div>
+{% endblock %}

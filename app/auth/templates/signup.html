@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('auth.static', filename = 'css/signup.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block title %}Sign up{% endblock %}
+{% block page_content %}
+<div class="form-container-su">
+    <h2>Sign Up</h2>
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+    <p class="alert alert-{{category}}">
+        {{message}}
+    </p>
+    {% endfor %}
+    <form method="POST">
+        {{form.hidden_tag()}}
+        <div class="form-username-su">
+            {{form.username.label}}
+            <div class="input-type">
+                {{form.username(class="form-control input")}}
+                {% if form.username.errors %}
+                <div class="errors">
+                    {% for error in form.username.errors %}
+                    <p class="text-err">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-email-su">
+            {{form.email.label}}
+            <div class="input-type">
+                {{form.email(class="form-control input")}}
+                 {% if form.email.errors %}
+                <div class="errors">
+                    {% for error in form.email.errors %}
+                    <p class="text-err">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="form-password-su">
+            {{form.password.label}}
+            <div class="input-type">
+                {{form.password(class="form-control input")}}
+                 {% if form.password.errors %}
+                <div class="errors">
+                    {% for error in form.password.errors %}
+                    <p class="text-err">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+        <div class="form-re-password-su">
+            {{form.re_password.label}}
+            <div class="input-type">
+                {{form.re_password(class="form-control input")}}
+                 {% if form.re_password.errors %}
+                <div class="errors">
+                    {% for error in form.re_password.errors %}
+                    <p class="text-err">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-submit-su">
+            {{form.submit(class="btn btn-success")}}
+        </div>
+    </form>
+</div>
+{% endblock %}

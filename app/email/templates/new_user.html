@@ -1,0 +1,13 @@
+    <div style="width: 70%; background:beige; margin: auto; padding: 5rem">
+        <h1>Hi, {{user.username}}</h1>
+        <p>Thanks for getting started with BlogTTN! We need a
+            little more information to complete your registration,
+            including confirmation of your email address.Click below
+            to confirm your email address : <a href="{{url_for('auth.confirm_user' ,username=user.username, token=token, _external=True)}}">
+                {{url_for('auth.confirm_user' ,username=user.username, token=token, _external=True)}}
+            </a>
+        </p>
+        <p>If you have any problems, please paste the above URL into your web browser</p>
+        <p>Thanks,</p>
+        <p>BlogTTN support</p>
+    </div>

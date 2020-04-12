@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block styles %}
+{{super()}}
+<link rel = "stylesheet" href="{{url_for('static', filename = 'css/error_page.css')}}">
+{% endblock %}
+{% block page_content %}
+<div>
+    <h1>404 Error</h1>
+    <div class = "test">
+
+    </div>
+    <br>
+    <p>There were some errors with server. Please try again later</p>
+</div>
+{% endblock %}

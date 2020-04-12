@@ -1,0 +1,59 @@
+@media only screen
+and (max-width: 768px) {
+    .form-container-su {
+        width: 70%;
+        margin: 3rem auto;
+    }
+}
+
+@media only screen
+and (max-width: 575px)
+{
+    .form-container-su {
+        width: 100%;
+        margin: 3rem auto;
+    }
+}
+
+@media only screen
+and (min-width: 768px) {
+    .form-container-su {
+        width: 40%;
+        margin: 3rem auto;
+    }
+}
+
+.form-username-su {
+    margin-top: 1rem;
+}
+
+.form-password-su {
+    margin-top: 1rem;
+}
+
+.form-email-su {
+    margin-top: 1rem;
+}
+.form-re-password-su {
+    margin-top: 1rem;
+}
+.form-submit-su {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.input-type {
+    display: flex;
+    flex-direction: column;
+
+}
+.input {
+    margin-right: 1rem;
+}
+
+.errors {
+    margin-top: 0.5rem;
+}
+.text-err{
+    color: red;
+}
