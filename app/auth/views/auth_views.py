@@ -6,9 +6,12 @@ from flask_login import login_user, logout_user
 from app.auth.services.auth_service import sign_up_user, send_mail_confirm
 from app.auth.models.user_model import confirm
 from app import db
+from app.auth.models.roles_model import Roles
+from app.auth.models.user_model import ignore_if_logged_in
 
 
 @auth.route('/login', methods=['GET', 'POST'])
+@ignore_if_logged_in
 def login():
     login_form = LoginForm()
     if login_form.validate_on_submit():
@@ -27,9 +30,11 @@ def login():
 
 
 @auth.route('/signup', methods=['GET', 'POST'])
+@ignore_if_logged_in
 def sign_up():
     sign_up_form = SignupForm()
     if sign_up_form.validate_on_submit():
+        role_id = Roles.query.filter_by()
         user = User(username=sign_up_form.username.data,
                     password=sign_up_form.password.data,
                     email=sign_up_form.email.data)

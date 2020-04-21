@@ -12,7 +12,7 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or 'bsbmjsyzklyeuvhr'
     BLOG_MAIL_SUBJECT_PREFIX = '[BlogTTN]'
     BLOG_MAIL_SENDER = '[BlogTTN] Admin <trungnhatnd1996@gmail.com>'
-    BLOG_ADMIN = os.environ.get('BLOG_ADMIN')
+    BLOG_ADMIN = os.environ.get('BLOG_ADMIN') or 'trantrungnhat6196@gmail.com'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     ITSDANGEROUS_SECRET_KEY = os.environ.get('SECRET_KEY_ITSDANGEROUS') or 'trantrungnhat'
     ITSDANGEROUS_EXPIRATION = int(os.environ.get('ITSDANGEROUS_EXPIRATION', 3600))  # s
