@@ -3,7 +3,6 @@ from wtforms import StringField, SubmitField, PasswordField, BooleanField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired
 from wtforms.validators import Email, EqualTo, ValidationError
-from app.auth.models.user_model import User
 
 
 class LoginForm(FlaskForm):
@@ -22,12 +21,10 @@ class SignupForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
     def validate_email(self, field):
-        if User.query.filter_by(email=field.data).first():
-            raise ValidationError('Email already taken')
+        pass
 
     def validate_username(self, field):
-        if User.query.filter_by(username=field.data).first():
-            raise ValidationError('Username already taken')
+        pass
 
 
 class ResendForm(FlaskForm):

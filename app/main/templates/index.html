@@ -5,13 +5,7 @@
     {% for message in get_flashed_messages() %}
     <p class="alert alert-success">{{message}}</p>
     {% endfor %}
-    <h1>Hello,
-        {% if current_user.is_authenticated %}
-        {{current_user.username}}
-        {{current_user.roles.name}}
-        {% else %}
-        Anonymous
-        {% endif %}
+    <h1>Hello,World
     </h1>
 </div>
 {% endblock %}
